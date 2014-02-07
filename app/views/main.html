@@ -1,2 +1,10 @@
 <h1>Vier Gewinnt!</h1>
-<p>Hallo Sepp</p>
+<div ng-controller="boardCtrl">
+    <div ng-repeat="row in boardRows">
+        <field
+            ng-repeat="field in row"
+            x="{{field.x}}"
+            y="{{field.y}}">
+        </field>
+    </div>
+</div>

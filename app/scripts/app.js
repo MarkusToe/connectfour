@@ -1,18 +1,19 @@
 'use strict';
 
-angular.module('connectfourApp', [
+var app = angular.module('connectfourApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider) {
+
+app.config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+        .when('/', {
+            templateUrl: 'views/main.html',
+            controller: 'boardCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+});
