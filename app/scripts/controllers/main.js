@@ -7,6 +7,7 @@ app.controller('boardCtrl', function ($scope) {
 
     $scope.columns = 8;
     $scope.rows = 8;
+    $scope.playerOneTurn = true;
 
     //    create fields
     for(var i=1; i<=$scope.columns; i++ ){
@@ -27,6 +28,15 @@ app.controller('boardCtrl', function ($scope) {
 
     $scope.setToken = function(selectedField){
         selectedField.occupied = true;
+
+        // switch player on each click
+        if($scope.playerOneTurn){
+            selectedField.color = "player-one";
+            $scope.playerOneTurn = !$scope.playerOneTurn;
+        } else {
+            selectedField.color = "player-two";
+            $scope.playerOneTurn = !$scope.playerOneTurn;
+        }
     }
 });
 
@@ -35,6 +45,7 @@ app.directive('field', function (){
         restrict: "E",
         scope: {
             occupied: "=",
+            color: "=",
             clickField: "&"
         },
         replace: true,
