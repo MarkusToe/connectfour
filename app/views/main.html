@@ -4,7 +4,9 @@
         <field
             ng-repeat="field in row"
             x="{{field.x}}"
-            y="{{field.y}}">
+            y="{{field.y}}"
+            occupied="field.occupied"
+            click-field="setToken(field)">
         </field>
     </div>
 </div>

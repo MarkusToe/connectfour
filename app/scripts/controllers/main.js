@@ -24,12 +24,20 @@ app.controller('boardCtrl', function ($scope) {
             }
         }
     }
+
+    $scope.setToken = function(selectedField){
+        selectedField.occupied = true;
+    }
 });
 
 app.directive('field', function (){
     return {
         restrict: "E",
+        scope: {
+            occupied: "=",
+            clickField: "&"
+        },
         replace: true,
-        template: '<div class="field"><i class="fa fa-circle token {{color}}"></i></div>'
+        template: '<div class="field" ng-click="clickField(field)"><i class="fa fa-circle token {{color}}" ng-show="occupied"></i></div>'
     }
 });
