@@ -69,8 +69,6 @@ app.controller('boardCtrl', function ($scope) {
 
         function alreadyFour(c) {
             if(c >= 4) {
-                // document.getElementById('infotext').innerHTML = '&nbsp;&nbsp;hat gewonnen';
-                console.log("game Over");
                 $scope.gameOver = true;
             }
         }
@@ -81,7 +79,6 @@ app.controller('boardCtrl', function ($scope) {
 
             if(rows[x-1][i].color === checkColor) {
                 counter++;
-                //console.log('horizontal: ' + counter);
             }
             else {
                 counter = 0;
@@ -95,7 +92,6 @@ app.controller('boardCtrl', function ($scope) {
             if(rows[i-1][y-1].color === checkColor)
             {
                 counter++;
-                // console.log('vertical: ' + counter);
             }
             else {
                 counter = 0;
@@ -118,12 +114,8 @@ app.controller('boardCtrl', function ($scope) {
 
             if(rows[r] && c<colCount) {
 
-                //console.table(rows[r]);
-                //console.log("column at the moment: " + c + " | row at the moment: " + r);
-
                 if(rows[r][c].color === checkColor) {
                     counter++;
-                    // console.log('diagonal right down: ' + counter);
                 }
                 else {
                     counter = 0;
@@ -151,15 +143,8 @@ c
 
         for(i = 0; i < colCount; i++) {
             if(rows[r-1] && c >= 0) {
-                if(rows[r-1][c-1].color == "player-one") {
-                    console.log("current row: " + r);
-                    console.log("current column: " + c);
-                }
                 if(rows[r-1][c-1].color === checkColor) {
                     counter++;
-                    if(rows[r-1][c-1].color == "player-one") {
-                        console.log('diagonal left down' + counter + "\n");
-                    }
                 }
                 else {
                     counter = 0;
