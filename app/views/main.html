@@ -1,5 +1,6 @@
 <h1>Vier Gewinnt!</h1>
 <div ng-controller="boardCtrl">
+    <div ng-show="gameOver">SIEG!!!</div>
     <div ng-repeat="row in boardRows">
         <field
             ng-repeat="field in row"
